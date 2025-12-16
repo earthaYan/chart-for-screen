@@ -1,0 +1,25 @@
+
+#root{
+  height: 100vh;
+  width: 100vw;
+  background: url('./assets/bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.app{
+  /* 设计稿的宽高 */
+  width: 1920px;
+  height:1080px;
+  transform-origin:0 0;
+  position: absolute;
+  left:50%;
+  top:50%;
+}
+
+.line1,.line2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
