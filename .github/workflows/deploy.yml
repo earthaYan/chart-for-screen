@@ -1,0 +1,50 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - components
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t big-screen:latest .
+
+      - name: Save Docker image
+        run: |
+          docker save big-screen:latest | gzip > big-screen.tar.gz
+
+      - name: Upload image to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: "big-screen.tar.gz"
+          target: "/opt/big-screen"
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /opt/big-screen
+            docker load < big-screen.tar.gz
+
+            docker stop big-screen || true
+            docker rm big-screen || true
+
+            docker run -d \
+              --name big-screen \
+              -p 8080:8080 \
+              --restart=always \
+              big-screen:latest
