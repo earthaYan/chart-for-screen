@@ -25,8 +25,7 @@ const Box4 = () => {
         <ScrollBoard
           config={config}
           style={{
-            padding: "10px",
-            width: "1270px",
+            width: "1200px",
             height: "300px",
           }}
         />

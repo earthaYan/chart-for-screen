@@ -4,7 +4,7 @@ import "./index.less";
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="header-wrapper">
       <Decoration8 style={{ width: "300px", height: "90px" }} />
       <div className="head-title">
         <span>趋势大屏</span>

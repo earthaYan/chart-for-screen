@@ -15,7 +15,6 @@
   position: absolute;
   left: 50%;
   top: 50%;
-
 }
 
 .chart-wrapper {
@@ -30,3 +29,4 @@
     align-items: center;
   }
 }
+
