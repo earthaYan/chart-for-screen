@@ -2,9 +2,10 @@
 import { BorderBox1 } from "@jiaminghi/data-view-react";
 import "./index.less";
 import { useEcharts } from "../../hooks/useEcharts";
+import { useState } from "react";
 
 const Box2 = () => {
-  const options = {
+  const [options] = useState({
     xAxis: {
       type: "value",
     },
@@ -19,7 +20,7 @@ const Box2 = () => {
         type: "bar",
       },
     ],
-  };
+  });
   const { chartRef } = useEcharts(options);
 
   return (

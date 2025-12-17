@@ -2,9 +2,10 @@
 import { BorderBox1 } from "@jiaminghi/data-view-react";
 import "./index.less";
 import { useEcharts } from "../../hooks/useEcharts";
+import { useState } from "react";
 
 const Box3 = () => {
-  const options = {
+  const [options] = useState({
     title: {
       text: "Basic Radar Chart",
     },
@@ -38,7 +39,7 @@ const Box3 = () => {
         ],
       },
     ],
-  };
+  });
   const { chartRef } = useEcharts(options);
 
   return (

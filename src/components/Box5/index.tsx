@@ -2,9 +2,10 @@
 import { BorderBox1 } from "@jiaminghi/data-view-react";
 import "./index.less";
 import { useEcharts } from "../../hooks/useEcharts";
+import { useState } from "react";
 
 const Box5 = () => {
-  const options = {
+  const [options] = useState({
     title: {
       text: "Stacked Area Chart",
     },
@@ -93,7 +94,7 @@ const Box5 = () => {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
       },
     ],
-  };
+  });
   const { chartRef } = useEcharts(options);
 
   return (

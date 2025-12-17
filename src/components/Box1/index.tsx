@@ -3,8 +3,9 @@ import { BorderBox1 } from "@jiaminghi/data-view-react";
 import "./index.less";
 
 import { useEcharts } from "../../hooks/useEcharts";
+import { useState } from "react";
 const Box1 = () => {
-  const options = {
+  const [options] = useState({
     tooltip: {
       trigger: "item",
     },
@@ -46,7 +47,7 @@ const Box1 = () => {
         ],
       },
     ],
-  };
+  });
   const { chartRef } = useEcharts(options);
   return (
     <div className="box1">
