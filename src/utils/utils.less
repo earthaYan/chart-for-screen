@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+// 设计稿尺寸（默认1920x1080）
+@designWidth: 1920;
+@designHeight: 1080;
+
+// px转vw：宽度相关属性
+.px2vw(@px) {
+    width: (@px / @designWidth) * 100vw;
+}
+
+// px转vh：高度相关属性
+.px2vh(@px) {
+    height: (@px / @designHeight) * 100vh;
+}
+
+// 字体大小使用vw（通常字体按宽度比例缩放）
+.px2font(@px) {
+    font-size: (@px / @designWidth) * 100vw;
+}
+
+// 设置top位置（使用vh）
+.px2top(@px) {
+    top: (@px / @designHeight) * 100vh;
+}

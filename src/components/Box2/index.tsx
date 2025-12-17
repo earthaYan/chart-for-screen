@@ -27,13 +27,19 @@ const Box2 = () => {
         ],
       };
       chart.setOption(options);
+      window.addEventListener("resize", () => {
+        chart.resize();
+      });
       return () => {
+        window.removeEventListener("resize", () => {
+          chart.resize();
+        });
         chart.dispose();
       };
     }
   }, []);
   return (
-    <div className="box">
+    <div className="box2">
       <BorderBox1>
         <div className="chart-container" ref={chartRef}></div>
       </BorderBox1>

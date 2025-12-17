@@ -3,6 +3,7 @@ import { BorderBox1 } from "@jiaminghi/data-view-react";
 import "./index.less";
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
+import { fitChartSize } from "../../utils";
 const Box1 = () => {
   const chartRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,7 +36,7 @@ const Box1 = () => {
             emphasis: {
               label: {
                 show: true,
-                fontSize: 40,
+                fontSize: fitChartSize(40),
                 fontWeight: "bold",
               },
             },
@@ -53,14 +54,20 @@ const Box1 = () => {
         ],
       };
       chart.setOption(options);
+      window.addEventListener("resize", () => {
+        chart.resize();
+      });
       return () => {
+        window.removeEventListener("resize", () => {
+          chart.resize();
+        });
         // 清理图表实例
         chart.dispose();
       };
     }
   }, []);
   return (
-    <div className="box">
+    <div className="box1">
       <BorderBox1>
         <div ref={chartRef} className="chart-container"></div>
       </BorderBox1>

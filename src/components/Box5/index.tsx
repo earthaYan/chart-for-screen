@@ -100,14 +100,20 @@ const Box5 = () => {
         ],
       };
       chart.setOption(options);
+      window.addEventListener("resize", () => {
+        chart.resize();
+      });
       return () => {
+        window.removeEventListener("resize", () => {
+          chart.resize();
+        });
         // 清理图表实例
         chart.dispose();
       };
     }
   }, []);
   return (
-    <div className="box">
+    <div className="box5">
       <BorderBox1>
         <div className="chart-container" ref={chartRef}></div>
       </BorderBox1>
