@@ -107,7 +107,7 @@ const Box5 = () => {
     }
   }, []);
   return (
-    <div className="box">
+    <div className="box5">
       <BorderBox1>
         <div className="chart-container" ref={chartRef}></div>
       </BorderBox1>

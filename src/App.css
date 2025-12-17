@@ -1,5 +1,4 @@
-
-#root{
+#root {
   height: 100vh;
   width: 100vw;
   background: url('./assets/bg.png');
@@ -8,18 +7,26 @@
 
 }
 
-.app{
+.app {
   /* 设计稿的宽高 */
   width: 1920px;
-  height:1080px;
-  transform-origin:0 0;
+  height: 1080px;
+  transform-origin: 0 0;
   position: absolute;
-  left:50%;
-  top:50%;
+  left: 50%;
+  top: 50%;
+
 }
 
-.line1,.line2{
+.chart-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+
+  .line1,
+  .line2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

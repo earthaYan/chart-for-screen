@@ -60,7 +60,7 @@ const Box1 = () => {
     }
   }, []);
   return (
-    <div className="box">
+    <div className="box1">
       <BorderBox1>
         <div ref={chartRef} className="chart-container"></div>
       </BorderBox1>

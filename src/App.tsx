@@ -31,14 +31,16 @@ function App() {
         style={{ transform: `scale(${scaleLevel}) translate(-50%,-50%)` }}
       >
         <Header />
-        <div className="line1">
-          <Box1 />
-          <Box2 />
-          <Box3 />
-        </div>
-        <div className="line2">
-          <Box4 />
-          <Box5 />
+        <div className="chart-wrapper">
+          <div className="line1">
+            <Box1 />
+            <Box2 />
+            <Box3 />
+          </div>
+          <div className="line2">
+            <Box4 />
+            <Box5 />
+          </div>
         </div>
       </div>
     </>
